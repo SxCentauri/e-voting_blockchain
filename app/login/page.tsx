@@ -4,8 +4,8 @@
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
-// Tambahkan ArrowLeft di sini
-import { Lock, Mail, ArrowRight, ShieldAlert, ArrowLeft } from 'lucide-react';
+// Update Import: Tambahkan Eye dan EyeOff
+import { Lock, Mail, ArrowRight, ShieldAlert, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 
@@ -13,6 +13,8 @@ export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // State baru untuk visibility password
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function handleLogin(e: React.FormEvent) {
@@ -38,7 +40,6 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-4 pattern-grid-lg">
-      {/* ANIMASI CARD MUNCUL (SLIDE UP) */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -67,13 +68,27 @@ export default function LoginPage() {
               value={email} onChange={(e) => setEmail(e.target.value)} required
             />
           </div>
+          
+          {/* BAGIAN PASSWORD DIPERBARUI */}
           <div className="relative">
             <Lock className="absolute left-3 top-3.5 text-zinc-500" size={18} />
             <input
-              type="password" placeholder="Password"
-              className="w-full bg-zinc-950 border border-zinc-800 text-white pl-10 pr-4 py-3 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-zinc-600"
+              // Ubah type berdasarkan state showPassword
+              type={showPassword ? "text" : "password"} 
+              placeholder="Password"
+              // Ubah pr-4 jadi pr-10 agar teks tidak menabrak icon mata
+              className="w-full bg-zinc-950 border border-zinc-800 text-white pl-10 pr-10 py-3 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all placeholder:text-zinc-600"
               value={password} onChange={(e) => setPassword(e.target.value)} required
             />
+            
+            {/* Tombol Toggle Mata */}
+            <button
+              type="button" // Penting: type button agar tidak submit form saat diklik
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-3.5 text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
           </div>
 
           <motion.button
@@ -86,7 +101,6 @@ export default function LoginPage() {
             {!loading && <ArrowRight size={18} />}
           </motion.button>
 
-          {/* TOMBOL KEMBALI KE LANDING PAGE (Baru) */}
           <button
             type="button"
             onClick={() => router.push('/')}
