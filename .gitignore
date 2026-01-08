@@ -1,41 +1,52 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# --- DEPENDENCIES ---
 /node_modules
 /.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+.pnp.js
 
-# testing
-/coverage
-
-# next.js
+# --- NEXT.JS BUILD OUTPUT ---
 /.next/
 /out/
-
-# production
 /build
+/dist
 
-# misc
-.DS_Store
+# --- SECURITY & ENV (SANGAT PENTING) ---
+# Jangan pernah upload file environment asli!
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.pem
 
-# debug
+# --- LOGS ---
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# --- SYSTEM FILES (OS) ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# vercel
-.vercel
+# --- IDE / EDITOR SETTINGS ---
+.idea/
+.vscode/
+*.swp
+*.swo
 
-# typescript
+# --- TESTING COVERAGE ---
+/coverage/
+
+# --- SUPABASE (Jika pakai CLI lokal) ---
+# Abaikan konfigurasi lokal Supabase yang sensitif
+supabase/.temp/
+supabase/.branches/
+
+# --- VERCEL ---
+.vercel/
+
+# --- TYPESCRIPT ---
 *.tsbuildinfo
 next-env.d.ts
