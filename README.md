@@ -61,14 +61,6 @@ Jika ada satu suara saja yang dimanipulasi (baik lewat database langsung atau se
 
 ---
 
-## 📸 Screenshots
-
-| Halaman Voting | Halaman Audit (Deteksi Error) |
-| :---: | :---: |
-| ![Vote Page](https://via.placeholder.com/400x200?text=Screenshot+Voting) | ![Audit Page](https://via.placeholder.com/400x200?text=Screenshot+Audit) |
-
----
-
 ## ⚙️ Cara Menjalankan (Local Development)
 
 Ikuti langkah-langkah berikut untuk menjalankan project ini di komputer lokal Anda:
@@ -133,6 +125,4 @@ Setiap kali voting terjadi, sistem akan:
 3. Melakukan hashing SHA-256 pada blok baru tersebut.
 4. Menyimpan hasilnya ke tabel blocks.
 
-<p align="center"> Dibuat oleh <b>Akhmat Qavidhufahmi</b>.
-
-Universitas Bengkulu - Informatika </p>
+<p align="center"> Dibuat oleh <b>Akhmat Qavidhufahmi</b>. Universitas Bengkulu - Informatika </p>
