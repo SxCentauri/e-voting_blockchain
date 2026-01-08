@@ -107,13 +107,6 @@ npm run dev
 ```
 Buka browser dan akses http://localhost:3000.
 
-### 4. Jalankan Server Development
-Buat file **.env.local** di root folder dan isi dengan kredensial Supabase Anda:
-```bash
-NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
-NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-```
-
 ## 🔐 Logika Blockchain
 Struktur data blok yang digunakan dalam sistem ini adalah sebagai berikut :
 ```TypeScript
